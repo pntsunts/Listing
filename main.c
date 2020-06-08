@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 09:33:43 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/08 15:52:00 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	int i;
 	i = 1;
 
-	if (!ft_checkf(av[i]))
+	if (!ft_checkf(av[i]) && !ft_isdir(av[i]))
 	{
 		ft_putstr("no such file or directory!!!!!\n");
 		return ;
