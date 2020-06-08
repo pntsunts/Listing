@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:37:32 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 08:37:40 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/08 12:00:56 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,37 @@ void	ft_confirm(int ac, char **av, P_flags *F_lags)
 		if (ft_checkf(av[i]))
 		{
 			j = 1;
-			while (av[i][j] != '\0')
-			{
-				if (!ft_isoption(av[i][j]))
-				{
-					ft_putstr("illegal option ----\n");
-					break;
-				}
-				if (av[i][j] == 'l')
-					F_lags->l_flag = 1;
-				else if (av[i][j] == 'a')
-					F_lags->a_flag = 1;
-				else if (av[i][j] == 'r')
-					F_lags->r_flag = 1;
-				else if (av[i][j] == 't')
-					F_lags->t_flag = 1;
-				else if (av[i][j] == 'R')
-					F_lags->Re_flag = 1;
-				j++;
-			}
+			conf(av, F_lags);
 		}
 		i++;
 	}
-} 
+}
+
+void conf(char **av, P_flags *F_lags)
+{
+	int i;
+	int j;
+
+	i = 1;
+	j = 1;
+	
+	while (av[i][j] != '\0')
+	{
+		if (!ft_isoption(av[i][j]))	
+		{
+			ft_putstr("Illegal option ------\n");
+			break;
+		}	
+		if (av[i][j] == 'l')
+			F_lags->l_flag = 1;
+		else if (av[i][j] == 'a')
+			F_lags->a_flag = 1;
+		else if (av[i][j] == 'r')
+			F_lags->r_flag = 1;
+		else if (av[i][j] == 't')
+			F_lags->t_flag = 1;
+		else if (av[i][j])
+			F_lags->Re_flag = 1;
+		j++;
+	}
+}
