@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:49:11 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 08:49:32 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/11 09:16:01 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,24 @@ void	sorting(t_files data[], int n)
 			j++;
 		}
 		i++;
+	}
+}
+
+void moretime(char **path, int i, t_files store[])
+{
+	i = 2;
+	while (path[i] != NULL)
+	{
+		if (ft_isdir(path[i]))
+		{
+			ft_time(path[i], store);
+			ft_displaytime(store, ft_structlen(store));
+		}
+		else
+		{
+			ft_putendl(path[i]);
+		}
+		i++;
+
 	}
 }
