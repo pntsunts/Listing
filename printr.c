@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:51:01 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 09:07:30 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/11 09:08:59 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,29 @@ void	revsort(t_files data[])
 				j = 0;
 			i++;
 		}
+	}
+}
+
+void several(char **path, int i, t_files store[])
+{
+	i = 2;
+	while (path[i] != NULL)
+	{
+		if (ft_isdir(path[i]))
+		{
+			printrev(path[i], store);
+			revsort(store);
+			while (store[i].name != NULL)
+				i++;
+			i--;
+			while (i >= 0)
+				ft_putendl(store[i--].name);
+			return;
+		}
+		else
+		{
+			ft_putendl(path[i]);
+		}
+		i++;
 	}
 }
