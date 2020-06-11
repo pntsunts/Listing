@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 15:52:00 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/11 13:20:26 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,27 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 		if (F_lags->a_flag == 1)
 			ls_a(".", tmp);
 		if (F_lags->r_flag == 1)
-			printr(".", tmp);
+		{
+			if (ac > 2)
+			{
+				several(av, i, tmp);
+			}
+			else
+			{
+				printr(".", tmp);
+			}
+		}
 		if (F_lags->t_flag == 1)
-			printtime(".", tmp);
+		{
+			if (ac > 2)
+			{
+				moretime(av, i, tmp);
+			}
+			else
+			{
+				printtime(".", tmp);
+			}
+		}
 		i++;
 	}
 }
