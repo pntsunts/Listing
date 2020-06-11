@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:49:11 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/11 09:16:01 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/11 13:51:24 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_time(const char *dir_name, t_files data[])
 {
 	DIR				*directory;
 	struct dirent 	*folders;
-	struct stat   t_f;
+	struct stat   ls;
 	int i = 0;
 
 	directory = opendir(dir_name);
@@ -25,12 +25,7 @@ void	ft_time(const char *dir_name, t_files data[])
 		if (folders->d_name[i] != '.')
 		{
 			data[i].name = ft_strdup(folders->d_name);
-			if (lstat(data[i].name, &t_f) < 0)
-			{
-				printf("ERROR");
-				return ;
-			}
-			data[i].mtime = t_f.st_mtime;
+			data[i].mtime = ls.st_mtime;
 			i++;
 		}
 	}
