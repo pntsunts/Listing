@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/11 13:20:26 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/12 16:37:14 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int ac, char **av)
 	{
 		test(ac, av, F_lags, tmp);
 	}
+	//sleep(10);
 	return (0);
 }
 void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
@@ -51,14 +52,19 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			}
 			else
 				see(".", tmp);
+			return;
 		}
    		if (F_lags->Re_flag == 1)
 		{
 			sion(".");
 			recur(".");
+			return ;
 		}
 		if (F_lags->a_flag == 1)
+		{
 			ls_a(".", tmp);
+			return ;
+		}
 		if (F_lags->r_flag == 1)
 		{
 			if (ac > 2)
@@ -69,6 +75,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			{
 				printr(".", tmp);
 			}
+			return ;
 		}
 		if (F_lags->t_flag == 1)
 		{
@@ -80,8 +87,14 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			{
 				printtime(".", tmp);
 			}
+			return ;
+		}
+		if ((F_lags->t_flag == 1 && F_lags->l_flag == 1))
+		{
+			multiple(".", tmp);
+			ft_putstr("Peter");
+			return ;
 		}
 		i++;
 	}
 }
-
