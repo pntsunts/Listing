@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/12 16:37:14 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/15 15:11:10 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ int		main(int ac, char **av)
 	P_flags *F_lags = (P_flags*)malloc(sizeof(P_flags));
 	t_files tmp[1024];
 	int i = 0;
+
 	if (ac < 2)
 	{
 		if (av[i][0] != '-')
 		{
 			ls(".", tmp);
 		}
+		else
+			ft_putstr("perm");
 	}
 	else
 	{
@@ -36,11 +39,17 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	int i;
 	i = 1;
 
+	if (printerror(av[i]))
+	{
+		return ;
+	}
+
 	if (!ft_checkf(av[i]) && !ft_isdir(av[i]))
 	{
 		ft_putstr("no such file or directory!!!!!\n");
 		return ;
 	}
+	
 	while (i < ac && ft_checkf(av[i]))
 	{
 		ft_confirm(ac, av, F_lags);
@@ -52,7 +61,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			}
 			else
 				see(".", tmp);
-			return;
+		return;
 		}
    		if (F_lags->Re_flag == 1)
 		{

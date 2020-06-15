@@ -6,7 +6,7 @@
 #    By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/08 08:32:48 by pntsunts          #+#    #+#              #
-#    Updated: 2020/06/10 09:03:30 by pntsunts         ###   ########.fr        #
+#    Updated: 2020/06/15 14:52:29 by pntsunts         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ft_ls
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = printrev.c ft_ls.c recur.c sion.c ft_ls_a.c ft_checkf.c ft_confirm.c ft_ls_a.c  printr.c ft_printl.c ft_isdir.c ft_time.c
+SRC = printrev.c ft_ls.c recur.c sion.c ft_ls_a.c ft_checkf.c ft_confirm.c ft_ls_a.c  printr.c ft_printl.c ft_isdir.c ft_time.c multiple.c error.c
 
 OBJ = $(SRC:.c=.o)
 
