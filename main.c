@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/15 15:11:10 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/16 11:29:29 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ int		main(int ac, char **av)
 		if (av[i][0] != '-')
 		{
 			ls(".", tmp);
-		}
-		else
-			ft_putstr("perm");
+		} 
 	}
 	else
 	{
 		test(ac, av, F_lags, tmp);
 	}
-	//sleep(10);
+//	sleep(10);
 	return (0);
 }
 void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
@@ -39,17 +37,21 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	int i;
 	i = 1;
 
-	if (printerror(av[i]))
+	//ft_putnbr(handle(av[i], i));
+	/*while (av[i] != NULL)
 	{
-		return ;
-	}
+		if (!(opendir(av[i])))
+		{
+			ft_err(&tmp, av[i]);
+		}
+		exit (1);
+	}*/
 
 	if (!ft_checkf(av[i]) && !ft_isdir(av[i]))
 	{
 		ft_putstr("no such file or directory!!!!!\n");
 		return ;
 	}
-	
 	while (i < ac && ft_checkf(av[i]))
 	{
 		ft_confirm(ac, av, F_lags);
@@ -105,5 +107,13 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			return ;
 		}
 		i++;
+	}
+	while (av[i] != NULL)
+	{
+		if (!(opendir(av[i])))
+		{
+			ft_error(&tmp, av[i]);
+			return ;
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:45:53 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/15 15:09:23 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/16 11:30:02 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ typedef struct		s_files
 	time_t			mtime;
 }				t_files;
 
-void permerror(char *path);
-int printerror(char *path);
+void ft_error(t_files **data, char *Path);
 void multiple(char *dir_name, t_files tmp[]);
 void moretime(char **path, int i, t_files store[]);
 void several(char **path, int i, t_files store[]);
