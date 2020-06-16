@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:37:32 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/08 12:00:56 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/16 11:55:38 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void conf(char **av, P_flags *F_lags)
 	{
 		if (!ft_isoption(av[i][j]))	
 		{
+			ft_putstr("ft_ls: ");
 			ft_putstr("Illegal option ------\n");
 			break;
 		}	
