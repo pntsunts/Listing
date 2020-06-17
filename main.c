@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 08:50:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/06/16 11:57:32 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/06/17 10:22:34 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,58 +37,63 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	int i;
 	i = 1;
 
-/*	if (!ft_checkf(av[i]) && !ft_isdir(av[i]))
-	{
-		ft_putstr("no such file or directory!!!!!\n");
-		return ;
-	}*/
 	while (i < ac && ft_checkf(av[i]))
 	{
 		ft_confirm(ac, av, F_lags);
-		if (F_lags->l_flag == 1)
+		if (F_lags->l_flag && F_lags->t_flag)
 		{
-			if (ac > 2)
-			{
-				printing(av, tmp);
-			}
-			else
-				see(".", tmp);
-		return;
+		//	see(".", tmp);
+			multiple(".", tmp);
+			exit(1);
 		}
-   		if (F_lags->Re_flag == 1)
+		else
 		{
-			sion(".");
-			recur(".");
-			return ;
-		}
-		if (F_lags->a_flag == 1)
-		{
-			ls_a(".", tmp);
-			return ;
-		}
-		if (F_lags->r_flag == 1)
-		{
-			if (ac > 2)
+			if (F_lags->l_flag == 1)
 			{
-				several(av, i, tmp);
+				if (ac > 2)
+				{
+					printing(av, tmp);
+				}
+				else
+					see(".", tmp);
+			return;
 			}
-			else
+   			if (F_lags->Re_flag == 1)
 			{
-				printr(".", tmp);
+				sion(".");
+				recur(".");
+				return ;
 			}
-			return ;
-		}
-		if (F_lags->t_flag == 1)
-		{
-			if (ac > 2)
+			if (F_lags->a_flag == 1)
 			{
-				moretime(av, i, tmp);
+				ls_a(".", tmp);
+				return ;
 			}
-			else
+			if (F_lags->r_flag == 1)
 			{
-				printtime(".", tmp);
+				if (ac > 2)
+				{
+					several(av, i, tmp);
+				}
+				else
+				{
+					printr(".", tmp);
+				}
+				return ;
 			}
-			return ;
+			if (F_lags->t_flag == 1)
+			{
+				if (ac > 2)
+				{
+					moretime(av, i, tmp);
+				}
+				else
+				{
+					printtime(".", tmp);
+				}
+				return ;
+			}
+		//	i++;
 		}
 		i++;
 	}
